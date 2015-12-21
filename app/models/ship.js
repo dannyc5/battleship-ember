@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  boardId: DS.attr(),
+  board_id: DS.attr(),
   row: DS.attr(),
   column: DS.attr(),
   updatedAt: DS.attr(),

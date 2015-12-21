@@ -15,7 +15,7 @@ export default Ember.Component.extend({
         let newShip = this.store.createRecord('ship', {
           row: this.row,
           column: this.column,
-          boardId: this.board.id
+          board_id: this.board.id
         })
 
         this.model.get('ships').addObject(newShip)

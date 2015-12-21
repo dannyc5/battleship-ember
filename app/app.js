@@ -12,7 +12,6 @@ let inflector = Ember.Inflector.inflector;
 // inflector.irregular("human", "humans");
 
 // Using this for now
-inflector.rules.plurals.shift([/(human)$/i, '$1s']);
 inflector._pCache = { human: "humans" };
 
 App = Ember.Application.extend({

@@ -6,7 +6,8 @@ export default Ember.Controller.extend({
       this.model
         .save()
         .then((game) => {
-          this.transitionToRoute('human', game)
+          let human = this.store.createRecord('human', {game_id: game.get('id')})
+          this.transitionToRoute('human', human)
         })
     }
   }
