@@ -6,7 +6,6 @@ export default Ember.Controller.extend({
       this.model
         .save()
         .then((game) => {
-          console.log('here')
           this.transitionToRoute('human', game)
         })
     }
