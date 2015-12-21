@@ -1,0 +1,22 @@
+.board {
+  width: 250px;
+  height: 250px;
+}
+
+.board-cell {
+  width: 20%;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.hit {
+  background-color: red;
+}
+
+.miss {
+  background-color: gray;
+}
+
+.ship {
+  background-color: green;
+}
