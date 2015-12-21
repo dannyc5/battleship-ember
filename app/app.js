@@ -7,6 +7,14 @@ let App;
 
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
+let inflector = Ember.Inflector.inflector;
+// THIS LINE DOESN'T WORK, LIKELY BECAUSE OF A BUG
+// inflector.irregular("human", "humans");
+
+// Using this for now
+inflector.rules.plurals.shift([/(human)$/i, '$1s']);
+inflector._pCache = { human: "humans" };
+
 App = Ember.Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,

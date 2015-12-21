@@ -5,6 +5,7 @@ export default DS.Model.extend({
   created_at: DS.attr(),
   updated_at: DS.attr(),
   winner: DS.belongsTo('player', {inverse: 'gameWon'}),
+  players: DS.hasMany('players', {inverse: 'game'}),
   human: DS.belongsTo('human'),
   bot: DS.belongsTo('bot')
 });

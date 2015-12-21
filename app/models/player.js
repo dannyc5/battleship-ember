@@ -6,6 +6,7 @@ export default DS.Model.extend({
   gameId: DS.attr(),
   type: DS.attr(),
   name: DS.attr(),
+  game: DS.belongsTo('player'),
   board: DS.belongsTo('board'),
   moves: DS.hasMany('moves'),
   gameWon: DS.belongsTo('game', {inverse: 'winner'})
