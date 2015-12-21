@@ -6,5 +6,6 @@ export default DS.Model.extend({
   playerId: DS.attr(),
   hit: DS.attr(),
   updatedAt: DS.attr(),
-  createdAt: DS.attr()
+  createdAt: DS.attr(),
+  player: DS.belongsTo('player')
 });

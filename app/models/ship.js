@@ -5,5 +5,6 @@ export default DS.Model.extend({
   row: DS.attr(),
   column: DS.attr(),
   updatedAt: DS.attr(),
-  createdAt: DS.attr()
+  createdAt: DS.attr(),
+  board: DS.belongsTo('board')
 });
