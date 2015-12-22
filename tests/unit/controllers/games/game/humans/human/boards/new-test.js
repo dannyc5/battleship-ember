@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:human', 'Unit | Controller | human', {
+moduleFor('controller:games/game/humans/human/boards/new', 'Unit | Controller | games/game/humans/human/boards/new', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
