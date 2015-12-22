@@ -6,8 +6,8 @@ export default DS.Model.extend({
   game_id: DS.attr(),
   type: DS.attr(),
   name: DS.attr(),
-  game: DS.belongsTo('player'),
-  board: DS.belongsTo('board'),
+  game: DS.belongsTo('player', {async: true}),
+  board: DS.belongsTo('board', {async: true}),
   moves: DS.hasMany('moves'),
   gameWon: DS.belongsTo('game', {inverse: 'winner'})
 });
