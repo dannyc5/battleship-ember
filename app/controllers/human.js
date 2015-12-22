@@ -7,7 +7,8 @@ export default Ember.Controller.extend({
         this.model
           .save()
           .then((player) => {
-            this.transitionToRoute('board', player)
+            let board = this.store.createRecord('board', {player_id: player.id})
+            this.transitionToRoute('board', )
           })
       } else {
         alert('You must enter a name.')
