@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
         if (this.model.hasEnoughShips()) {
           this.model.save()
             .then((board) => {
-              debugger;
+              debugger
             })
         }
       }

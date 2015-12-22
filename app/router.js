@@ -6,9 +6,18 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('game');
-  this.route('human', {path: '/humans/new/:game_id'});
-  this.route('board', {path: '/boards/new/:player_id'});
+  this.route('games', function() {
+    this.route('game', {path: '/:game_id'}, function() {
+      this.route('humans', function() {
+        this.route('new')
+        this.route('human', {path: '/:human_id'}, function() {
+          this.route('boards', function() {
+            this.route('new')
+          });
+        });
+      });
+    });
+  });
 });
 
 export default Router;
