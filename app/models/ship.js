@@ -6,5 +6,5 @@ export default DS.Model.extend({
   column: DS.attr(),
   updatedAt: DS.attr(),
   createdAt: DS.attr(),
-  board: DS.belongsTo('board')
+  board: DS.belongsTo('board', { async: false })
 });

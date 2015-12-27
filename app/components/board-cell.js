@@ -11,7 +11,7 @@ export default Ember.Component.extend({
       alert('Already have a ship on the selected spot')
     } else {
       this.sendAction('addShip', this.row, this.column, this)
+      this.toggleProperty('hasShip');
     }
-    this.toggleProperty('hasShip')
   }
 });

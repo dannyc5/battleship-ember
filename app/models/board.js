@@ -5,7 +5,7 @@ export default DS.Model.extend({
   createdAt: DS.attr(),
   updatedAt: DS.attr(),
   player: DS.belongsTo('player'),
-  ships: DS.hasMany('ships'),
+  ships: DS.hasMany('ships', { async: false }),
   hasEnoughShips() {
     return this.get('ships').length > 9
   },
