@@ -2,11 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
-    addShip(row, column) {
+    addShip(row, column, boardCell) {
       if (this.model.hasEnoughShips()) {
         alert('Already have 10 ships.')
-      } else if ( this.model.shipAt(row, column)) {
-        alert('Already have a ship on the selected spot')
+        boardCell.toggleProperty('hasShip')
       } else {
         let newShip = this.store.createRecord('ship', {
                         row: row,
