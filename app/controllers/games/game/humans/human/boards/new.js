@@ -20,6 +20,9 @@ export default Ember.Controller.extend({
             .then((board) => {
               debugger
             })
+            .catch((errors) => {
+              console.log(errors)
+            })
         }
       }
     }
