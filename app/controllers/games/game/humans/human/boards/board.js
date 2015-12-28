@@ -17,10 +17,8 @@ export default Ember.Controller.extend({
                         board: this.model })
 
         this.model.get('ships').addObject(newShip)
-
         newShip.save().then(ship => {
           if (ship.get('board.hasEnoughShips')) {
-            debugger
             this.transitionToRoute('games.game.humans.human.boards', ship.get('board.player.game'), ship.get('board.player'))
           }
         }).catch((response) => {
