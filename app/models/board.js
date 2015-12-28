@@ -5,9 +5,9 @@ export default DS.Model.extend({
   createdAt: DS.attr(),
   updatedAt: DS.attr(),
   player: DS.belongsTo('player'),
-  ships: DS.hasMany('ships', { async: false }),
+  ships: DS.hasMany('ships', { async: true }),
   hasEnoughShips() {
-    return this.get('ships').length > 9
+    return this.get('ships.length') > 9
   },
   shipAt(row, column) {
     return this.get('ships').any((ship) => (ship.get('row') === row && ship.get('column') === column))
