@@ -4,19 +4,14 @@ export default Ember.Component.extend({
   tagName: 'td',
   classNames: 'board-cell',
 
-  classNameBindings: ['ship:has-ship'],
+  classNameBindings: ['hasShip'],
 
   click() {
-    if (this.get('ship')) {
+    if (this.get('hasShip')) {
       alert('Already have a ship on the selected spot')
     } else {
       this.sendAction('addShip', this.row, this.column, this)
-      debugger;
-      // this.toggleProperty('hasShip');
+      this.toggleProperty('hasShip');
     }
-  },
-
-  didInsertElement() {
-    this.set('ship', this.get('board.ships').find(function(ship){return ship.get('row') == this.row && ship.get('column') == this.column}.bind(this)))
   }
 });
