@@ -15,16 +15,18 @@ export default Ember.Controller.extend({
 
         this.model.get('ships').addObject(newShip)
 
-        if (this.model.hasEnoughShips()) {
-          this.model.save()
-            .then((board) => {
-              debugger
-            })
-            .catch((response) => {
-              console.log(response.message)
-              response.errors.forEach((msg) => console.log(msg))
-            })
-        }
+        newShip.save().then((ship) => {
+          alert('ship saved')
+          debugger
+          if (ship.get('board').hasEnoughShips()) {
+            this.transitionToRoute('games.game', ship.get('board.player.game'))
+          }
+        }).catch((response) => {
+          debugger
+          console.log(response.message)
+          response.errors.forEach((msg) => console.log(msg))
+        })
+
       }
     }
   }
