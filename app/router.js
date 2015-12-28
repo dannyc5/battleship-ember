@@ -12,7 +12,7 @@ Router.map(function() {
         this.route('new')
         this.route('human', {path: '/:human_id'}, function() {
           this.route('boards', function() {
-            this.route('board', {path: '/:board_id'})
+            this.route('new')
           });
         });
       });
