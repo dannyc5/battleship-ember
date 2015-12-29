@@ -4,6 +4,5 @@ export default DS.Model.extend({
   winner_id: DS.attr(),
   created_at: DS.attr(),
   updated_at: DS.attr(),
-  winner: DS.belongsTo('player', {inverse: 'gameWon'}),
-  players: DS.hasMany('players', {inverse: 'game', async: true, polymorphic: true})
+  players: DS.hasMany('players', {async: true, polymorphic: true})
 });
