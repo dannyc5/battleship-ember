@@ -10,13 +10,12 @@ Router.map(function() {
     this.route('game', {path: '/:game_id'}, function() {
       this.route('humans', function() {
         this.route('new')
-        this.route('human', {path: '/:human_id'}, function() {
-          this.route('boards', function() {
-            this.route('board', {path: '/:board_id'}, function(){
-              this.route('setup')
-            })
-          });
-        });
+      });
+
+      this.route('boards', function() {
+        this.route('board', {path: '/:board_id'}, function(){
+          this.route('setup')
+        })
       });
     });
   });

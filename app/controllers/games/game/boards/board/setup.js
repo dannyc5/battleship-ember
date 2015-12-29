@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
         this.model.get('ships').addObject(newShip)
         newShip.save().then(ship => {
           if (ship.get('board.hasEnoughShips')) {
-            this.transitionToRoute('games.game.humans.human.boards', ship.get('board.player.game'), ship.get('board.player'))
+            this.transitionToRoute('games.game.boards', ship.get('board.player.game'))
           }
         }).catch((response) => {
           console.log(response)
