@@ -7,5 +7,5 @@ export default DS.Model.extend({
   hit: DS.attr(),
   updatedAt: DS.attr(),
   createdAt: DS.attr(),
-  player: DS.belongsTo('player')
+  player: DS.belongsTo('player', { async: true, polymorphic: true }),
 });

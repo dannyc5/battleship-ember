@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
     createGame() {
       this.model.save()
         .then((game) => {
-          this.transitionToRoute('games.game.humans.new', game)
+          this.transitionToRoute('games.game.new_human', game)
         })
     }
   }

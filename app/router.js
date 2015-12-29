@@ -8,14 +8,10 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('games', function() {
     this.route('game', {path: '/:game_id'}, function() {
-      this.route('humans', function() {
-        this.route('new')
-      });
-
-      this.route('boards', function() {
-        this.route('board', {path: '/:board_id'}, function(){
-          this.route('setup')
-        })
+      this.route('new_human')
+      this.route('human', {path: 'player/:human_id'})
+      this.route('board', {path: 'board/:board_id'}, function(){
+        this.route('setup')
       });
     });
   });
