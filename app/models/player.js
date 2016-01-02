@@ -5,7 +5,7 @@ export default DS.Model.extend({
   updatedAt: DS.attr(),
   game_id: DS.attr(),
   name: DS.attr(),
-  game: DS.belongsTo('game', {async: true }),
-  board: DS.belongsTo('board', {async: true}),
+  game: DS.belongsTo('game', { async: true }),
+  board: DS.belongsTo('board', { async: true }),
   moves: DS.hasMany('moves')
 });
