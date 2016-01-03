@@ -4,9 +4,9 @@
     <tr class="board-row">
       {{#each colNums as |colNum|}}
         {{#if (ship-at model rowNum colNum)}}
-          {{board-cell row=rowNum column=colNum addShip='addShip' hasShip=true}}
+          {{board-cell row=rowNum column=colNum action='addShip' hasShip=true}}
         {{else}}
-          {{board-cell row=rowNum column=colNum addShip='addShip' hasShip=false}}
+          {{board-cell row=rowNum column=colNum action='addShip' hasShip=false}}
         {{/if}}
       {{/each}}
     </tr>
