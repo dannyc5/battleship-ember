@@ -4,8 +4,7 @@ export default Ember.Controller.extend({
   actions: {
     createPlayer() {
       if (this.model.get('name')) {
-        this.model
-          .save()
+        this.model.save()
           .then((player) => {
             this.transitionToRoute('game.board.setup', player.get('game'), player.get('board'))
           })

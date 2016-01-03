@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.createRecord('human', {game: this.modelFor('game')})
+    let human = this.store.createRecord('human')
+    human.set('game', this.modelFor('game'))
+    return human
   }
 });
