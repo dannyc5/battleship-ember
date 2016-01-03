@@ -9,6 +9,8 @@ export default Ember.Controller.extend({
       if (this.model.get('hasEnoughShips')) {
         alert('Already have 10 ships.')
         boardCell.toggleProperty('hasShip')
+      } else if (boardCell.get('hasShip')) {
+        alert('Already have a ship on the selected spot')
       } else {
         let newShip = this.store.createRecord('ship', {
                         row: row,
@@ -18,6 +20,7 @@ export default Ember.Controller.extend({
 
         this.model.get('ships').addObject(newShip)
         newShip.save().then(ship => {
+          boardCell.toggleProperty('hasShip');
           if (ship.get('board.hasEnoughShips')) {
             this.transitionToRoute('game.battleship', ship.get('board.player.game'))
           }

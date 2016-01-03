@@ -3,10 +3,9 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   afterModel(model, transition) {
     let promises = [
-      model.get('human'),
-      model.get('bot'),
-      model.get('human.board'),
-      model.get('bot.board')
+      this.store.query('ship', {board_id: model.get('human.board.id')}),
+      this.store.query('move', {player_id: model.get('human.id')}),
+      this.store.query('move', {player_id: model.get('bot.id')})
     ]
     return Ember.RSVP.all(promises);
   },
@@ -18,14 +17,8 @@ export default Ember.Route.extend({
     controller.set('bot', model.get('bot'))
     controller.set('botBoard', model.get('bot.board'))
 
-    this.store.query('ship', {board_id: model.get('human.board.id')}).then((ships) => {
-      controller.set('humanBoardShips', ships)
-    })
-    this.store.query('move', {player_id: model.get('human.id')}).then((moves) => {
-      controller.set('humanMoves', moves)
-    })
-    this.store.query('move', {player_id: model.get('bot.id')}).then((moves) => {
-      controller.set('botMoves', moves)
-    })
+    controller.set('humanBoardShips', model.get('human.board.ships'))
+    controller.set('humanMoves', model.get('human.moves'))
+    controller.set('botMoves', model.get('bot.moves'))
   }
 });

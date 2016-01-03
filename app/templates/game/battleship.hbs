@@ -3,9 +3,9 @@
   {{#each rowNums as |rowNum|}}
     <tr class="board-row">
       {{#each colNums as |colNum|}}
-        {{#if (hit-at bot rowNum colNum)}}
+        {{#if (hit-at botMoves rowNum colNum)}}
           {{board-cell row=rowNum column=colNum hasHit=true}}
-        {{else if (miss-at bot rowNum colNum)}}
+        {{else if (miss-at botMoves rowNum colNum)}}
           {{board-cell row=rowNum column=colNum hasMiss=true}}
         {{else if (ship-at humanBoard rowNum colNum)}}
           {{board-cell row=rowNum column=colNum hasShip=true}}
@@ -23,9 +23,9 @@
   {{#each rowNums as |rowNum|}}
     <tr class="board-row">
       {{#each colNums as |colNum|}}
-        {{#if (hit-at human rowNum colNum)}}
+        {{#if (hit-at humanMoves rowNum colNum)}}
           {{board-cell row=rowNum column=colNum hasHit=true}}
-        {{else if (miss-at human rowNum colNum)}}
+        {{else if (miss-at humanMoves rowNum colNum)}}
           {{board-cell row=rowNum column=colNum hasMiss=true}}
         {{else}}
           {{board-cell row=rowNum column=colNum action='makeMove' hasShip=false}}
