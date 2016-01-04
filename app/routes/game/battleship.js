@@ -7,10 +7,6 @@ export default Ember.Route.extend({
       model.get('botBoard'),
       this.store.query('cell', {player_board_id: model.get('humanBoard.id')}),
       this.store.query('cell', {player_board_id: model.get('botBoard.id')})
-      // this.store.query('ship', {player_board_id: model.get('humanBoard.id')}),
-      // this.store.query('ship', {player_board_id: model.get('botBoard.id')}),
-      // model.get('humanBoard.cells'),
-      // model.get('botBoard.cells')
     ]
     return Ember.RSVP.all(promises);
   },
