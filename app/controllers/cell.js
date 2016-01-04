@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   hasShip: function(){
+    // thought: why must I define this in order to pass hasShip into component?
     return this.model.get('hasShip')
   }.property('model.hasShip'),
 
