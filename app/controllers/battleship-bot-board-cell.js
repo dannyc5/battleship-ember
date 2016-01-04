@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
   }.property('model.hasMiss'),
 
   clickAction: function(){
-    return this.get('hasMove') ? 'alertOccupied' : 'makeMove'
+    return this.model.get('hasMove') ? 'alertOccupied' : 'makeMove'
   }.property('model.hasMove'),
 
   actions: {
@@ -21,9 +21,10 @@ export default Ember.Controller.extend({
       let game = this.model.get('botBoard.game')
       newMove.save()
         .then(move => {
-          this.store.query('move', {player_board_id: game.get('botBoard.id')})
+          this.store.query('move', {player_board_id: game.get('humanBoard.id')})
           this.store.findRecord('game', game.get('id')).then(game => {
             if (game.get('hasWinner')) {
+              debugger
               this.transitionToRoute('game.battleship.sunk', game)
             }
           })
