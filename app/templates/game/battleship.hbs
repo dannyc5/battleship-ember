@@ -1,12 +1,12 @@
-<h3>Human Board</h3>
+{{outlet}}
+
+<h3>{{humanBoard.name}}'s Board</h3>
 <table class="board human-board">
   {{render 'battleshipHumanBoard' humanBoard}}
 </table>
 
-<h3>Bot Board</h3>
+<h3>{{botBoard.name}}'s Board</h3>
 <p>Click the squares below to make moves</p>
 <table class="board bot-board">
   {{render 'battleshipBotBoard' botBoard}}
 </table>
-
-{{outlet}}

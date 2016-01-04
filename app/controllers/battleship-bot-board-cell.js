@@ -10,7 +10,11 @@ export default Ember.Controller.extend({
   }.property('model.hasMiss'),
 
   clickAction: function(){
-    return this.model.get('hasMove') ? 'alertOccupied' : 'makeMove'
+    if (this.model.get('botBoard.game.hasWinner')) {
+      return 'gameOver';
+    } else {
+      return this.model.get('hasMove') ? 'alertOccupied' : 'makeMove'
+    }
   }.property('model.hasMove'),
 
   actions: {
@@ -22,9 +26,8 @@ export default Ember.Controller.extend({
       newMove.save()
         .then(move => {
           this.store.query('move', {player_board_id: game.get('humanBoard.id')})
-          this.store.findRecord('game', game.get('id')).then(game => {
+          this.store.queryRecord('game', {id: game.get('id')}).then(game => {
             if (game.get('hasWinner')) {
-              debugger
               this.transitionToRoute('game.battleship.sunk', game)
             }
           })
@@ -36,6 +39,10 @@ export default Ember.Controller.extend({
 
     alertOccupied() {
       alert('Already guessed this spot.')
+    },
+
+    gameOver() {
+      alert('Game has already ended.')
     }
   }
 });
