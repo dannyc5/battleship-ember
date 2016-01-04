@@ -9,7 +9,11 @@
   border: 1px solid black;
 }
 
-.has-hit {
+.has-ship {
+  background-color: lime;
+}
+
+.has-hit, .has-ship.has-hit {
   background-color: red;
 }
 
@@ -17,6 +21,3 @@
   background-color: gray;
 }
 
-.has-ship {
-  background-color: lime;
-}
