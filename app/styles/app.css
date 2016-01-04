@@ -9,11 +9,11 @@
   border: 1px solid black;
 }
 
-.hit {
+.has-hit {
   background-color: red;
 }
 
-.miss {
+.has-miss {
   background-color: gray;
 }
 

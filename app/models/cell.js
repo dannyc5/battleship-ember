@@ -9,11 +9,11 @@ export default DS.Model.extend({
   ship: DS.belongsTo('ship', { async: true }),
   move: DS.belongsTo('move', { async: true }),
   hasHit: function(){
-    return this.get('move.hit')
-  }.property('move.id'),
+    return this.get('hasMove') && this.get('move.hit') === true
+  }.property('move.hit'),
   hasMiss: function(){
-    return this.get('move.hit') === false
-  }.property('move.id'),
+    return this.get('hasMove') && this.get('move.hit') === false
+  }.property('move.hit'),
   hasMove: function(){
     return this.get('move.id') !== undefined && this.get('move.id') !== null;
   }.property('move.id'),

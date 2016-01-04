@@ -14,7 +14,9 @@ Router.map(function() {
       })
     });
 
-    this.route('battleship')
+    this.route('battleship', function() {
+      this.route('sunk');
+    })
   });
 });
 

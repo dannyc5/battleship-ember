@@ -15,22 +15,26 @@ export default Ember.Controller.extend({
 
   actions: {
     makeMove() {
-      console.log('move')
-      // let newShip = this.store.createRecord('ship', { cell: this.model })
-      // this.model.set('ship', newShip)
-      // newShip.save()
-      //   .then(ship => {
-      //     if (ship.get('cell.humanBoard.hasEnoughShips')) {
-      //       this.transitionToRoute('game.battleship', ship.get('cell.humanBoard.game'))
-      //     }
-      //   }).catch((response) => {
-      //     console.log(response)
-      //     response.errors.forEach((msg) => console.log(msg))
-      //   })
+      let newMove = this.store.createRecord('move', { cell: this.model })
+      this.model.set('move', newMove)
+
+      let game = this.model.get('botBoard.game')
+      newMove.save()
+        .then(move => {
+          this.store.query('move', {player_board_id: game.get('botBoard.id')})
+          this.store.findRecord('game', game.get('id')).then(game => {
+            if (game.get('hasWinner')) {
+              this.transitionToRoute('game.battleship.sunk', game)
+            }
+          })
+        }).catch((response) => {
+          console.log(response)
+          response.errors.forEach((msg) => console.log(msg))
+        })
     },
 
     alertOccupied() {
-      alert('Already have a ship on the selected spot')
+      alert('Already guessed this spot.')
     }
   }
 });
