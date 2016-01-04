@@ -16,7 +16,7 @@ export default DS.JSONAPISerializer.extend({
       attr = result.data.attributes,
       rel = result.data.relationships;
 
-    return Object.keys(rel).reduce(function(acc, elem) {
+    return Object.keys(rel).reduce(function(acc = {}, elem) {
       const data = rel[elem].data;
       if (data) {
         acc[elem + "_id"] = data.id;

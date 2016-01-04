@@ -5,8 +5,8 @@ export default Ember.Controller.extend({
     createGame() {
       this.model.save()
         .then((game) => {
-          this.transitionToRoute('game.new_human', game)
-        })
+          this.transitionToRoute('game.new_human_board', game);
+        });
     }
   }
 });

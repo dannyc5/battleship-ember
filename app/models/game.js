@@ -2,10 +2,10 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   winner_id: DS.attr(),
-  human: DS.belongsTo('human', {async: true}),
-  bot: DS.belongsTo('bot', {async: true}),
-  battleshipOn() {
+  humanBoard: DS.belongsTo('humanBoard', {async: true}),
+  botBoard: DS.belongsTo('botBoard', {async: true}),
+  battleshipOn: function() {
     // NOT TESTED
-    return (this.winner_id === null || this.winner_id === undefined) && this.get('human.board.hasEnoughShips')
-  }.property('winner_id, human.board.ships.length')
+    return (this.get('winner_id') === null || this.get('winner_id') === undefined) && this.get('humanBoard.hasEnoughShips');
+  }.property('winner_id', 'humanBoard.hasEnoughShips')
 });

@@ -1,0 +1,13 @@
+<h3>Place 10 Ships on your board</h3>
+<table class="board human-board">
+  {{#each cellsByRow as |row|}}
+    <tr class="board-row">
+      {{#each row.items as |cell|}}
+        {{render 'cell' cell}}
+      {{/each}}
+    </tr>
+  {{/each}}
+</table>
+
+{{outlet}}
+

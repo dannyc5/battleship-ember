@@ -7,11 +7,14 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('game', {path: 'games/:game_id'}, function() {
-    this.route('new_human')
-    this.route('battleship')
-    this.route('board', {path: 'board/:board_id'}, function(){
-      this.route('setup')
+    this.route('new_human_board')
+    this.route('human_board', {path: 'human_board/:human_board_id'}, function(){
+      this.route('cells', function(){
+        this.route('new_ships')
+      })
     });
+
+    this.route('battleship')
   });
 });
 
