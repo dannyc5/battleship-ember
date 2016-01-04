@@ -1,0 +1,7 @@
+{{#each cellsByRow as |row|}}
+  <tr class="board-row">
+    {{#each row.items as |cell|}}
+      {{render 'battleshipBotBoardCell' cell}}
+    {{/each}}
+  </tr>
+{{/each}}

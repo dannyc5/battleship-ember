@@ -1,11 +1,27 @@
 <h3>Human Board</h3>
 <table class="board human-board">
-  {{render 'battleshipHumanBoard' botBoard}}
+{{!--   {{#each humanBoardCellsByRow as |row|}}
+    <tr class="board-row">
+      {{#each row.items as |cell|}}
+        {{render 'battleshipHumanBoardCell' cell}}
+      {{/each}}
+    </tr>
+  {{/each}}
+ --}}
+  {{render 'battleshipHumanBoard' humanBoard}}
 </table>
 
 <h3>Bot Board</h3>
 <p>Click the squares below to make moves</p>
 <table class="board bot-board">
+  {{!-- {{#each botBoardCellsByRow as |row|}}
+    <tr class="board-row">
+      {{#each row.items as |cell|}}
+        {{render 'battleshipBotBoardCell' cell}}
+      {{/each}}
+    </tr>
+  {{/each}}
+   --}}
   {{render 'battleshipBotBoard' botBoard}}
 </table>
 
