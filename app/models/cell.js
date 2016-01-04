@@ -15,7 +15,7 @@ export default DS.Model.extend({
     return this.get('move.hit') === false
   }.property('move.id'),
   hasMove: function(){
-    return this.get('ship.id') !== undefined && this.get('ship.id') !== null;
+    return this.get('move.id') !== undefined && this.get('move.id') !== null;
   }.property('move.id'),
   hasShip: function(){
     return this.get('ship.id') !== undefined && this.get('ship.id') !== null;
