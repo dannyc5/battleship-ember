@@ -1,38 +1,12 @@
-{{!-- <h3>Human Board</h3>
+<h3>Human Board</h3>
 <table class="board human-board">
-  {{#each rowNums as |rowNum|}}
-    <tr class="board-row">
-      {{#each colNums as |colNum|}}
-        {{#if (hit-at botMoves rowNum colNum)}}
-          {{board-cell row=rowNum column=colNum hasHit=true}}
-        {{else if (miss-at botMoves rowNum colNum)}}
-          {{board-cell row=rowNum column=colNum hasMiss=true}}
-        {{else if (ship-at humanBoard rowNum colNum)}}
-          {{board-cell row=rowNum column=colNum hasShip=true}}
-        {{else}}
-          {{board-cell row=rowNum column=colNum hasShip=false}}
-        {{/if}}
-      {{/each}}
-    </tr>
-  {{/each}}
+  {{render 'battleshipHumanBoard' botBoard}}
 </table>
 
 <h3>Bot Board</h3>
 <p>Click the squares below to make moves</p>
 <table class="board bot-board">
-  {{#each rowNums as |rowNum|}}
-    <tr class="board-row">
-      {{#each colNums as |colNum|}}
-        {{#if (hit-at humanMoves rowNum colNum)}}
-          {{board-cell row=rowNum column=colNum hasHit=true}}
-        {{else if (miss-at humanMoves rowNum colNum)}}
-          {{board-cell row=rowNum column=colNum hasMiss=true}}
-        {{else}}
-          {{board-cell row=rowNum column=colNum action='makeMove' hasShip=false}}
-        {{/if}}
-      {{/each}}
-    </tr>
-  {{/each}}
+  {{render 'battleshipBotBoard' botBoard}}
 </table>
- --}}
+
 {{outlet}}
