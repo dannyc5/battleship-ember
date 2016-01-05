@@ -1,7 +1,6 @@
 # Battleship-ember
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Rails API at https://github.com/danielchangNYC/battleship
 
 ## Prerequisites
 
@@ -22,7 +21,8 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-* `ember server`
+* Run [the api](https://github.com/danielchangNYC/battleship) on port 3000. You'll need to clone, cd into the directory, and then run `rails s -p 3000`
+* `ember server --proxy http://localhost:3000`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Code Generators
